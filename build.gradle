@@ -1,12 +1,13 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.1.RELEASE'
+        springBootVersion = '1.5.10.RELEASE'
     }
     repositories {
         mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE")
     }
 }
 
@@ -23,11 +24,14 @@ repositories {
     mavenCentral()
 }
 
+//Spring Boot Overriding
+ext['hibernate.version'] = '5.2.11.Final' //추가
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-actuator')
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('org.springframework.boot:spring-boot-starter-web')
+    compile('pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.15')
     runtimeOnly('com.h2database:h2')
     compileOnly('org.projectlombok:lombok')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
