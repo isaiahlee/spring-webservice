@@ -70,20 +70,20 @@ public class PostsRepositoryTest {
         assertTrue(posts.getModifiedDate().isAfter(now));
     }
 
-    @Test
-    @Transactional
-    public void findAllDesc() {
-        //given
-        List<PostsMainResponseDto> list = postsRepository.findAllDesc()
-                .map(PostsMainResponseDto::new)
-                .collect(Collectors.toList());
-
-        //when
-        List<Posts> postList = postsRepository.findAll();
-
-        //then
-        PostsMainResponseDto posts = list.get(0);
-        System.out.println(posts.getTitle());
-        System.out.println(posts.toString());
-    }
+//    @Test
+//    @Transactional
+//    public void findAllDesc() {
+//        //given
+//        List<PostsMainResponseDto> list = postsRepository.findAllDesc()
+//                .map(PostsMainResponseDto::new)
+//                .collect(Collectors.toList());
+//
+//        //when
+//        List<Posts> postList = postsRepository.findAll();
+//
+//        //then
+//        PostsMainResponseDto posts = list.get(0);
+//        System.out.println(posts.getTitle());
+//        System.out.println(posts.toString());
+//    }
 }
