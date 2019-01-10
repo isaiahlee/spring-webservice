@@ -1,5 +1,6 @@
 package com.isaiahlee224.webservice.web;
 
+import com.isaiahlee224.webservice.domain.common.CommonResponse;
 import com.isaiahlee224.webservice.domain.posts.PostsRepository;
 import com.isaiahlee224.webservice.dto.PostsSaveRequestDto;
 import com.isaiahlee224.webservice.service.PostsService;
@@ -22,7 +23,12 @@ public class WebRestController {
     }
 
     @PostMapping("/posts")
-    public void savePosts(@RequestBody PostsSaveRequestDto dto){
+    public CommonResponse savePosts(@RequestBody PostsSaveRequestDto dto){
         postsService.save(dto);
+
+        return CommonResponse.builder()
+                .result("OK")
+                .message("msg")
+                .build();
     }
 }
